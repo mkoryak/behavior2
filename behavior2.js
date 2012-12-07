@@ -63,7 +63,6 @@ var Behavior2 = (function(){
                         runOnce($ctx, ret, $doc, behaviorGlobals); //if they overwrite ret instead of setting properties on it, it will be sad!
                         ret.initialize && ret.initialize();
                     } catch(e){
-                        OM.track_js_exception(e, arguments, 'behavior2 init exception: '+name);
                         window.console && window.console.error && window.console.error("Behavior2: ["+name+"] threw an exception during init: "+ e.name+": "+ e.message+" stack:\n\n"+printStackTrace({e: e}).join('\n'));
                     }
                     _.each(events, function(selectors, event){
