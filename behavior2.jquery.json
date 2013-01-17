@@ -1,0 +1,30 @@
+{
+  "name": "behavior2",
+  "title": "Behavior2",
+	"description": "Behavior2: organize page behaviors into descrete chunks of code.",
+	"version": "1.0",
+	"homepage": "https://github.com/mkoryak/behavior2",
+	"author": {
+		"name": "misha koryak",
+		"email": "last name at gmail",
+		"url": "http://programmingdrunk.com/"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/mkoryak/behavior2.git"
+	},
+	"bugs": {
+		"url": "https://github.com/mkoryak/behavior2/issues"
+	},
+	"licenses": [
+		{
+			"type": "CC BY-SA 3.0",
+			"url": "http://creativecommons.org/licenses/by-sa/3.0/"
+		}
+	],
+	"dependencies": {
+		"jquery": ">= 1.7",
+    "underscore": ">= 2.0"
+	},
+	"keywords": ["behavior", "code"]
+}
