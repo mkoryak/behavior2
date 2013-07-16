@@ -7,7 +7,7 @@ All the event binding happens in the context of that DOM element which eliminate
 
 
 How is Behavior2 different than backbone models or X?
-=====================================================
+-------
 
 I wrote this lib because of one major gripe with popular event binding libs:  
 They all use prototypical inheritence and make you add the event handler functions (and other functions) to the prototype of some object.
