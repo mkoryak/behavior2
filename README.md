@@ -43,6 +43,12 @@ Javascript:
     
 The above code will bind events to the DOM within the context of `span.more-expand`. 
 
+More realistic example
+----------------------
+
+I use behavior2 in a sample TodoMVC app. 2 behaviors drive the entire app. Its written in coffeescript but there is a compiled version commited alongside:  
+[todoMVC example](https://github.com/OpenMile/nunjucks-shared-templates/blob/master/public/js/todos.coffee)
+
 Documentation
 -------------
 
