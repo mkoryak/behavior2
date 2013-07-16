@@ -5,6 +5,21 @@ A very small lib to organize page behavior code into modular, easy to read code.
 Each behavior is bound to an DOM element via a selector. 
 All the event binding happens in the context of that DOM element which eliminates dependancies and makes you write very modular drop-in ready code.
 
+
+How is Behavior2 different than backbone models or X?
+=====================================================
+
+I wrote this lib because of one major gripe with popular event binding libs:  
+They all use prototypical inheritence and make you add the event handler functions (and other functions) to the prototype of some object.
+This means that in order for you to call one function from another you have to keep track of the correct ```this```.
+This also leads to excessive $.proxy() user and hacks like ```var that = this;```. Shared variables are also harder to use,
+because they all this on *this*. For example: ```this.foo = 'bar'```.  
+
+I wanted to have an implementation where I wouldnt have to worry about this (no pun intended). Behavior2 solves this problem
+by giving you a single ```function($ctx, that)``` in which you must add event handlers to a special ```that`` object.   
+You work inside of a closure. You no longer need to refernece ```this```, only ```that``` which never changes.
+
+
 An example
 ----------
 
