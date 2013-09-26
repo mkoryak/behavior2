@@ -11,13 +11,13 @@ How is Behavior2 different than backbone models or X?
 
 I wrote this lib because of one major gripe with popular event binding libs:  
 They all use prototypical inheritence and make you add the event handler functions (and other functions) to the prototype of some object.
-This means that in order for you to call one function from another you have to keep track of the correct ```this```.
-This also leads to excessive ```$.proxy()``` use and hacks like ```var that = this;```. Shared variables are also harder to use,
-because they all live on *this*. For example: ```this.foo = 'bar'```.  
+This means that in order for you to call one function from another you have to keep track of the correct <code>this</code>.
+This also leads to excessive <code>$.proxy()</code> use and hacks like <code>var that = this;</code>. Shared variables are also harder to use,
+because they all live on <code>this</code>. For example: <code>this.foo = 'bar'</code>.  
 
 I wanted to have an implementation where I wouldnt have to worry about this (no pun intended). Behavior2 solves this problem
-by giving you a single ```function($ctx, that)``` in which you must add event handlers to a special ```that`` object.   
-You work inside of a closure. You no longer need to refernece ```this```, only ```that``` which never changes.
+by giving you a single <code>function($ctx, that)</code> in which you must add event handlers to a special <code>that</code> object.   
+You work inside of a closure. You no longer need to refernece <code>this</code>, only <code>that</code> which never changes.
 
 
 An example
