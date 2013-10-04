@@ -1,0 +1,29 @@
+{
+  "name": "behavior2",
+  "main": "behavior2.js",
+  "version": "1.1.1",
+  "homepage": "https://github.com/mkoryak/behavior2",
+  "authors": [
+    "Misha Koryak <mkoryak@gmail.com>"
+  ],
+  "description": "a small event binding / code modularization lib",
+  "keywords": [
+    "events",
+    "event binding",
+    "behavior",
+    "ui",
+    "module"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": ">= 1.9.0",
+    "underscore": ">= 1.3.0"
+  }
+}
