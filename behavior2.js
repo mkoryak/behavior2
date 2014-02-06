@@ -12,7 +12,7 @@
  * Tested on FF13+, Chrome 21+, IE9, IE8, IE7
  *
  * @author Misha Koryak
- * @version 0.6.1
+ * @version 1.1.2
  */
 var Behavior2 = (function(){
   var that = {};
