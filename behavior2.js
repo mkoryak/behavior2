@@ -2,18 +2,17 @@
  * behavior2
  * Copyright (c) 2012 Misha Koryak - https://github.com/mkoryak/behavior2
  * Licensed under Creative Commons Attribution-NonCommercial 3.0 Unported - http://creativecommons.org/licenses/by-sa/3.0/
- * Date: 10/03/13
+ * Date: 2/06/14
  *
  * Dependancies:
  * jquery 1.8.0 + [required]
  * underscore.js 1.3.0 + [required]
  *
- * http://notetodogself.blogspot.com
  *
  * Tested on FF13+, Chrome 21+, IE9, IE8, IE7
  *
  * @author Misha Koryak
- * @version 0.6.0
+ * @version 0.6.1
  */
 var Behavior2 = (function(){
   var that = {};
@@ -42,12 +41,12 @@ var Behavior2 = (function(){
         var $ctx = $(this);
         if(!$ctx.data(dataName)){
           var ret = {};
-          try {
-            runOnce($ctx, ret, $doc, behaviorGlobals); //if they overwrite ret instead of setting properties on it, it will be sad!
-            ret.initialize && ret.initialize();
-          } catch(e){
-            window.console && window.console.error && window.console.error("Behavior2: ["+name+"] threw an exception during init: "+ e.name+": "+ e.message);
-          }
+          subclasses[name] = ret;
+          $ctx.data(dataName, ret);
+
+          runOnce($ctx, ret, $doc, behaviorGlobals); //if they overwrite ret instead of setting properties on it, it will be sad!
+          ret.initialize && ret.initialize();
+
           _.each(events, function(selectors, event){
             _.each(selectors, function(func, selector){
               if(ret[func]){
@@ -62,8 +61,6 @@ var Behavior2 = (function(){
               }
             });
           });
-          subclasses[name] = ret;
-          $ctx.data(dataName, subclasses[name]);
         }
       });
     };
