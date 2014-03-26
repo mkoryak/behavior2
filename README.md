@@ -6,20 +6,6 @@ Each behavior is bound to an DOM element via a selector.
 All the event binding happens in the context of that DOM element which eliminates dependancies and makes you write very modular drop-in ready code.
 
 
-How is Behavior2 different than backbone models or X?
--------
-
-I wrote this lib because of one major gripe with popular event binding libs:  
-They all use prototypical inheritence and make you add the event handler functions (and other functions) to the prototype of some object.
-This means that in order for you to call one function from another you have to keep track of the correct <code>this</code>.
-This also leads to excessive <code>$.proxy()</code> use and hacks like <code>var that = this;</code>. Shared variables are also harder to use,
-because they all live on <code>this</code>. For example: <code>this.foo = 'bar'</code>.  
-
-I wanted to have an implementation where I wouldnt have to worry about this (no pun intended). Behavior2 solves this problem
-by giving you a single <code>function($ctx, that)</code> in which you must add event handlers to a special <code>that</code> object.   
-You work inside of a closure. You no longer need to refernece <code>this</code>, only <code>that</code> which never changes.
-
-
 An example
 ----------
 
@@ -77,4 +63,19 @@ Documentation
 Behavior2 high level overview:  
 `Behavior2.Class()` - creates and registers a new behavior  
 `Behavior2.contentChanged()` - triggers all behaviors to check for new elements to bind to. Typically used after ajaxing in new content
+
+How is Behavior2 different than backbone models or X?
+-------
+
+I wrote this lib because of one major gripe with popular event binding libs:  
+They all use prototypical inheritence and make you add the event handler functions (and other functions) to the prototype of some object.
+This means that in order for you to call one function from another you have to keep track of the correct <code>this</code>.
+This also leads to excessive <code>$.proxy()</code> use and hacks like <code>var that = this;</code>. Shared variables are also harder to use,
+because they all live on <code>this</code>. For example: <code>this.foo = 'bar'</code>.  
+
+I wanted to have an implementation where I wouldnt have to worry about this (no pun intended). Behavior2 solves this problem
+by giving you a single <code>function($ctx, that)</code> in which you must add event handlers to a special <code>that</code> object.   
+You work inside of a closure. You no longer need to refernece <code>this</code>, only <code>that</code> which never changes.
+
+
     
