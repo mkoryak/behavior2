@@ -76,5 +76,5 @@ Documentation
 
 Behavior2 high level overview:  
 `Behavior2.Class()` - creates and registers a new behavior  
-`Behavior2.contentChaged()` - triggers all behaviors to check for new elements to bind to. Typically used after ajaxing in new content
+`Behavior2.contentChanged()` - triggers all behaviors to check for new elements to bind to. Typically used after ajaxing in new content
     
