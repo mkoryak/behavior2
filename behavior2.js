@@ -1,8 +1,8 @@
 /**
  * behavior2
- * Copyright (c) 2012 Misha Koryak - https://github.com/mkoryak/behavior2
- * Licensed under Creative Commons Attribution-NonCommercial 3.0 Unported - http://creativecommons.org/licenses/by-sa/3.0/
- * Date: 2/06/14
+ * Copyright (c) 2012-2014 Misha Koryak - https://github.com/mkoryak/behavior2
+ * Licensed under MIT
+ * Date: 6/29/14
  *
  * Dependancies:
  * jquery 1.8.0 + [required]
@@ -12,7 +12,7 @@
  * Tested on FF13+, Chrome 21+, IE9, IE8, IE7
  *
  * @author Misha Koryak
- * @version 1.1.2
+ * @version 1.2.0
  */
 var Behavior2 = (function(){
   var that = {};
@@ -50,10 +50,26 @@ var Behavior2 = (function(){
           _.each(events, function(selectors, event){
             _.each(selectors, function(func, selector){
               if(ret[func]){
+                var gloabalEvent = false;
+                if(event.match(/^!(\w+)/)){ //bind globally (not within ctx) - useful for popups. to be used sparingly
+                    event = RegExp.$1;
+                    gloabalEvent = true;
+                }
+                var $selected = $([]);
+                if($ctx.is(selector)){
+                    $selected.add($ctx);
+                }
+                $selected.add($ctx.find(selector));
+                ret["$"+func] = $selected;
+                ret["_"+func] = ret[func];
+                ret[func] = function(){
+                    ret["_"+func].apply(ret["$"+func], $.makeArray(arguments));
+                }
                 $doc.on(event, selector, function(e){ //we do not need to special case 'focus' and 'blur' jquery does this for delegated events already.
                   var $target = $(e.currentTarget);
-                  if($target.is($ctx) || $target.closest($ctx).length){
-                    ret[func].apply($target, $.makeArray(arguments));
+                  if(gloabalEvent || $target.is($ctx) || $target.closest($ctx).length){
+                    ret["$"+func] = $target;
+                    ret["_"+func].apply($target, $.makeArray(arguments));
                   }
                 });
               } else {
