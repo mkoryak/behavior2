@@ -3,7 +3,7 @@ Behavior2
 
 A very small lib to organize page behavior code into modular, easy to read code.
 Each behavior is bound to an DOM element via a selector. 
-All the event binding happens in the context of that DOM element which eliminates dependancies and makes you write very modular drop-in ready code.
+All the event binding happens in the context of that DOM element which eliminates dependencies and makes you write very modular drop-in ready code.
 
 
 An example
