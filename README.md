@@ -50,6 +50,12 @@ Javascript:
 ```    
 The above code will bind events to the DOM within the context of `span.more-expand`. 
 
+Passing options 
+---------------
+
+see: https://gist.github.com/mkoryak/de4a1060eac2773125c2
+
+
 More realistic example
 ----------------------
 
